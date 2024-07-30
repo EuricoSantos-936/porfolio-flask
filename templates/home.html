@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Eurico Santos - Portfolio{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<header class="header" id="home">
+    <div class="container">
+        <div class="img-holder">
+            <div id="man-animation"></div>
+        </div>      
+        <div class="infos">
+            <h6 class="subtitle">Hi, I'm</h6>
+            <h6 class="title">Eurico Santos</h6>
+            <div id="typewriter"></div>
+            <div class="socials mt-4">
+                <a class="social-item" href="mailto:euricosantos_936@hotmail.com"><i class="fas fa-envelope"></i></a>
+                <a class="social-item" href="https://www.linkedin.com/in/eurico-santos-545b57109"><i class="fab fa-linkedin"></i></a>
+                <a class="social-item" href="https://github.com/EuricoSantos-936"><i class="fab fa-github"></i></a>
+            </div>
+        </div>     
+    </div>  
+</header>
+<!-- End of Page Header -->
+
+<!-- Portfolio section -->
+<section id="portfolio">
+    <div class="container">
+        <h2>My Projects</h2>
+        <div class="row">
+            {% for project in projects %}
+                <div class="col-md-4">
+                    <div class="project">
+                        <h3>{{ project.name }}</h3>
+                        <p>{{ project.description }}</p>
+                        <a href="{{ project.link }}">View Project</a>
+                        <img src="{{ project.image }}" alt="{{ project.name }}">
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Add New Project</h1>
+    <form method="POST" action="{{ url_for('admin') }}">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.name.label }} {{ form.name(size=32, class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.github.label }} {{ form.link(size=64, class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.link.label }} {{ form.link(size=64, class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.image.label }} {{ form.image(size=64, class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+    </form>
+</div>
+{% endblock %}
