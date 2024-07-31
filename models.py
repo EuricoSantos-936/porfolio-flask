@@ -8,6 +8,7 @@ class Project(db.Model):
     description = db.Column(db.Text, nullable=False)
     link = db.Column(db.String(200), nullable=False)
     image = db.Column(db.String(200), nullable=False)
+    link_github = db.Column(db.String(200), nullable=False)
 
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)

@@ -1,25 +1,29 @@
-$(document).ready(function(){
-	$(".nav-link").on('click', function(event) {
+$(document).ready(function() {
+    // Smooth scrolling for navigation links
+    $(".nav-link").on('click', function(event) {
+        var hash = this.hash;
 
-    	if (this.hash !== "") {
-
-			event.preventDefault();
-
-			var hash = this.hash;
-
-			$('html, body').animate({
-				scrollTop: $(hash).offset().top
-			}, 700, function(){
-				window.location.hash = hash;
-			});
-      	} 
+        // Verifica se o hash não está vazio e se o elemento existe
+        if (hash !== "" && $(hash).length) {
+            event.preventDefault();
+            $('html, body').animate({
+                scrollTop: $(hash).offset().top
+            }, 700, function() {
+                window.location.hash = hash;
+            });
+        }
     });
-});
 
-//Typewriter effect
-var app = document.getElementById('typewriter');
+    // Check if the URL contains a hash and scroll to it on page load
+    if (window.location.hash && $(window.location.hash).length) {
+        var hash = window.location.hash;
+        $('html, body').scrollTop($(hash).offset().top);
+    }
 
-        var typewriter = new Typewriter(app, {
+    // Typewriter effect
+    var typewriterElement = document.getElementById('typewriter');
+    if (typewriterElement) {
+        var typewriter = new Typewriter(typewriterElement, {
             loop: true
         });
 
@@ -32,46 +36,49 @@ var app = document.getElementById('typewriter');
             .typeString('Let\'s create new projects together!')
             .pauseFor(2500)
             .start();
+    }
 
+    // Lottie animation setup
+    var lottieContainers = [
+        { containerId: 'man-animation', path: 'static/animations/animation_lo4pd2il.json' },
+        { containerId: 'avatar', path: 'static/animations/Animation - 1719093509398.json' }
+    ];
 
-// Lottie animation setup
-var animation = lottie.loadAnimation({
-	container: document.getElementById('man-animation'),
-	renderer: 'svg',
-	loop: true,
-	autoplay: true,
-	path: 'static/animations/animation_lo4pd2il.json'
-  });
+    lottieContainers.forEach(function(config) {
+        var container = document.getElementById(config.containerId);
+        if (container) {
+            lottie.loadAnimation({
+                container: container,
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                path: config.path
+            });
+        }
+    });
 
+    // Contact form EmailJS
+    emailjs.init('7ifx8mL0NF5Wsjynh');
 
-  var animation = lottie.loadAnimation({
-	container: document.getElementById('avatar'),
-	renderer: 'svg',
-	loop: true,
-	autoplay: true,
-	path: 'static/animations/Animation - 1719093509398.json'
-  });
-// Contact form EmailJS
-emailjs.init('7ifx8mL0NF5Wsjynh');
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
 
-document.getElementById('contact-form').addEventListener('submit', function(event) {
-	event.preventDefault();
+        var formData = {
+            from_name: document.getElementById('exampleInputName').value,
+            reply_to: document.getElementById('exampleInputEmail1').value,
+            message: document.querySelector('textarea[name="contact-message"]').value
+        };
 
-	var formData = {
-		from_name: document.getElementById('exampleInputName').value,
-		reply_to: document.getElementById('exampleInputEmail1').value,
-		message: document.querySelector('textarea[name="contact-message"]').value
-	};
+        emailjs.send('service_203xt6v', 'template_maljbz7', formData)
+            .then(function(response) {
+                console.log('Email sent with success!', response.status, response.text);
+            }, function(error) {
+                console.error('Error sending email:', error);
+            });
 
-	emailjs.send('service_203xt6v', 'template_maljbz7', formData)
-		.then(function(response) {
-			console.log('Email sent with success!', response.status, response.text);
-		}, function(error) {
-			console.error('Error sending email:', error);
-		});
-
-	document.getElementById('exampleInputName').value = '';
-	document.getElementById('exampleInputEmail1').value = '';
-	document.querySelector('textarea[name="contact-message"]').value = '';
+        // Clear form fields
+        document.getElementById('exampleInputName').value = '';
+        document.getElementById('exampleInputEmail1').value = '';
+        document.querySelector('textarea[name="contact-message"]').value = '';
+    });
 });
-  

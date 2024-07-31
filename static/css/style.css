@@ -479,9 +479,6 @@ mark,
 
 .img-thumbnail {
   padding: 0.25rem;
-  background-color: #fff;
-  border: 1px solid #dee2e6;
-  border-radius: 0.25rem;
   max-width: 100%;
   height: auto;
 }
@@ -4450,7 +4447,9 @@ input[type="button"].btn-block {
   margin-bottom: 0;
   list-style: none;
 }
-
+.hide-nav {
+  display: none;
+}
 .nav-link {
   display: block;
   padding: 0.5rem 1rem;

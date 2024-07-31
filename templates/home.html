@@ -7,7 +7,7 @@
 <header class="header" id="home">
     <div class="container">
         <div class="img-holder">
-            <div id="man-animation"></div>
+            <div id="man-animation" style="width: 100%; height: 500px;"></div>
         </div>      
         <div class="infos">
             <h6 class="subtitle">Hi, I'm</h6>
@@ -22,23 +22,142 @@
     </div>  
 </header>
 <!-- End of Page Header -->
+ <!-- About section -->
+ <section id="about" class="section mt-3">
+    <div class="container mt-5">
+        <div class="row text-center text-md-left">
+            <div id="avatar" class="col-md-3 img-thumbnail mb-4">
+                
+            </div>
+            <div class="pl-md-4 col-md-9">
+                <h6 class="title">Eurico Santps</h6>
+                <p class="subtitle">Python Developer</p>
+                <p>I am a passionate Python developer specializing in backend development using Flask and Django. Additionally, I perform web automation through Selenium and web scraping with BeautifulSoup. With a solid foundation in creating robust backend systems and automated solutions, I continuously strive to enhance my skills and stay updated with the latest technologies. I am dedicated to applying my experience to build efficient and scalable solutions that meet the evolving needs of the industry.</p>
+                <button class="btn btn-primary rounded mt-3">DOWNLOAD CV</button>                   
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills section -->
+<section class="section">
+    <div class="container text-center">
+        <h6 class="subtitle">Skills</h6>
+        <h6 class="section-title mb-4">Why Choose me</h6>
+        <div class="row text-left">
+            <div class="col-sm-6">
+                <h6 class="mb-3">Python</h6>
+                <div class="progress">
+                    <div class="progress-bar bg-primary" role="progressbar" style="width: 100%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span>100%</span></div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <h6 class="mb-3">Web Design</h6>
+                <div class="progress">
+                    <div class="progress-bar bg-primary" role="progressbar" style="width: 83%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span>83%</span></div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <h6 class="mb-3">Automation</h6>
+                <div class="progress">
+                    <div class="progress-bar bg-primary" role="progressbar" style="width:80%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span>95%</span></div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <h6 class="mb-3">Backend development</h6>
+                <div class="progress">
+                    <div class="progress-bar bg-primary" role="progressbar" style="width: 90%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span>90%</span></div>
+                </div>
+            </div>
+        </div>  
+    </div>
+</section>
+<!-- End of Skills sections -->
+ <!-- Hire me section -->
+ <section class="bg-gray p-0 section">
+    <div class="container">
+        <div class="card bg-primary">
+            <div class="card-body text-light">
+                <div class="row align-items-center">
+                    <div class="col-sm-9 text-center text-sm-left">
+                        <h5 class="mt-3">Hire Me For Your Project</h5>
+                        <p class="mb-3">Benefit from my expertise in Python backend development with Flask and Django, along with proficiency in web automation and scraping using Selenium and BeautifulSoup. </p>
+                    </div>
+                    <div class="col-sm-3 text-center text-sm-right">
+                        <button class="btn btn-light rounded">Hire Me!</button>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+</section>      
+<!-- End od Hire me section. -->
 
 <!-- Portfolio section -->
-<section id="portfolio">
-    <div class="container">
-        <h2>My Projects</h2>
+<section id="portfolio" class="section">
+    <div class="container text-center">
+        <h6 class="subtitle">Portfolio</h6>
+        <h6 class="section-title mb-4">Check My Wonderful Works</h6>
         <div class="row">
             {% for project in projects %}
-                <div class="col-md-4">
-                    <div class="project">
-                        <h3>{{ project.name }}</h3>
-                        <p>{{ project.description }}</p>
-                        <a href="{{ project.link }}">View Project</a>
-                        <img src="{{ project.image }}" alt="{{ project.name }}">
+            <div class="col-sm-4">
+                <div class="img-wrapper">
+                    <img src="{{ url_for('static', filename='images/projects/' + project.image) }}" alt="{{ project.name }}">
+                    <div class="overlay">
+                        <div class="overlay-infos">
+                            <h5>{{ project.name }}</h5>
+                        <a href="{{ project.link }}"><i class="fab fa-github"></i></a>
+                        <a href="{{ project.github}}"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
             {% endfor %}
         </div>
     </div>
 </section>
+<!-- End Of Portfolio section -->
+ <!-- Contact Section -->
+ <section id="contact" class="position-relative section">
+    <div class="container text-center">
+        <h6 class="subtitle">Contact</h6>
+        <h6 class="section-title mb-4">Get In Touch With Me</h6>
+        <p class="mb-5 pb-4">Feel free to get in touch with me to discuss how we can collaborate on your next project. Whether it's Python backend development, web automation, or data scraping, I'm eager to bring my skills and expertise to your team.  <br> Let's connect and bring your ideas to life!</p>
+
+        <div class="contact text-left">
+            <div class="form">
+                <h6 class="subtitle">Available 24/7</h6>
+                <h6 class="section-title mb-4">Get In Touch</h6>
+                <form id="contact-form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="exampleInputName" placeholder="Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="contact-message" id="" cols="30" rows="5" class="form-control" placeholder="Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block rounded w-lg">Send Message</button>
+                </form>
+            </div>
+            <div class="contact-infos">
+                <div class="item">
+                    <i class="fas fa-map-marker "></i>
+                    <div class="">
+                        <h5>Location</h5>
+                        <p> Santarém, Portugal</p>
+                    </div>                          
+                </div>
+                <div class="item">
+                    <i class="fas fa-envelope"></i>
+                    <div class="mb-0">
+                        <h5>Email Address</h5>
+                        <p>euricosantos-dev@outlook.com</p>
+                    </div>
+                </div>
+            </div>                  
+        </div>
+    </div>     
+</section>
+<!-- End of Contact Section -->
+
 {% endblock %}
