@@ -1,13 +1,15 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, FileField, SubmitField, TextAreaField
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, URL
 
 class ProjectForm(FlaskForm):
-    name = StringField('Project Name', validators=[DataRequired()])
+    name = StringField('Name', validators=[DataRequired()])
     description = TextAreaField('Description', validators=[DataRequired()])
-    link = StringField('Live Link', validators=[DataRequired()])
-    image = FileField('Project Image')
-    link_github = StringField('GitHub Link', validators=[DataRequired()])
+    mini_description = StringField('Mini Description - To show on cards', validators=[DataRequired()])
+    stack_used = StringField('Stack Used - ex. Flask - Tkinter - React', validators=[DataRequired()])
+    link = StringField('Link', validators=[DataRequired(), URL()])
+    link_github = StringField('GitHub Link', validators=[DataRequired(), URL()])
+    image = FileField('Image')
     submit = SubmitField('Submit')
 
 class LoginForm(FlaskForm):

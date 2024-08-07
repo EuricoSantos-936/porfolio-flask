@@ -6,9 +6,14 @@ class Project(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
     description = db.Column(db.Text, nullable=False)
+    mini_description = db.Column(db.String(255), nullable=True)
+    stack_used = db.Column(db.String(255), nullable=True)
     link = db.Column(db.String(200), nullable=False)
     image = db.Column(db.String(200), nullable=False)
     link_github = db.Column(db.String(200), nullable=False)
+
+    def __repr__(self):
+        return f'<Project {self.name}>'
 
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)

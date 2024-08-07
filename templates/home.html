@@ -97,23 +97,29 @@
 <section id="portfolio" class="section">
     <div class="container text-center">
         <h6 class="subtitle">Portfolio</h6>
-        <h6 class="section-title mb-4">Check My Wonderful Works</h6>
-        <div class="row">
+        <h6 class="section-title mb-4">Check My Works</h6>
+        <div class="row justify-content-center">
             {% for project in projects %}
-            <div class="col-sm-4">
+            <div class="col-md-4 col-sm-6 mb-4 d-flex align-items-center justify-content-center">
                 <div class="img-wrapper">
                     <img src="{{ url_for('static', filename='images/projects/' + project.image) }}" alt="{{ project.name }}">
                     <div class="overlay">
                         <div class="overlay-infos">
                             <h5>{{ project.name }}</h5>
-                        <a href="{{ project.link }}"><i class="fab fa-github"></i></a>
-                        <a href="{{ project.github}}"><i class="fab fa-github"></i></a>
+                            <p>{{ project.mini_description}}</p></br>
+                            <h5>Stack used</h5>
+                            <p>{{ project.stack_used}}</p>
+                            <a href="{{ project.link }}"><i class="fa fa-link  "></i></a>
+                            <a href="{{ project.github }}"><i class="fab fa-github"></i></a>
+                        </div>
                     </div>
                 </div>
+            </div>
             {% endfor %}
         </div>
     </div>
 </section>
+
 <!-- End Of Portfolio section -->
  <!-- Contact Section -->
  <section id="contact" class="position-relative section">
