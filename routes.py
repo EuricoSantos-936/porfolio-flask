@@ -21,7 +21,7 @@ def admin_dashboard():
 
 @login_required
 def add_project():
-    from app import app
+    from main import app
     form = ProjectForm()
     if form.validate_on_submit():
         image_filename = 'default.png' 
@@ -46,7 +46,7 @@ def add_project():
 
 @login_required
 def edit_project(project_id):
-    from app import app
+    from main import app
     project = Project.query.get_or_404(project_id)
     form = ProjectForm(obj=project)
     
@@ -100,7 +100,7 @@ def login():
 
 @login_required
 def delete_project_image(project_id):
-    from app import app
+    from main import app
     project = Project.query.get_or_404(project_id)
     if project.image and project.image != 'default.png':
         image_path = os.path.join(app.config['UPLOAD_FOLDER'], project.image)

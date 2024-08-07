@@ -27,10 +27,13 @@ $(document).ready(function() {
             loop: true
         });
 
-        typewriter.typeString('Python Developer')
+        typewriter.typeString('Full-stack Developer')
             .pauseFor(2500)
             .deleteAll()
-            .typeString('Back-end Developer')
+            .typeString('Python - Flask and Django')
+            .pauseFor(2500)
+            .deleteAll()
+            .typeString('Javascript - React.js and Vue.js')
             .pauseFor(2500)
             .deleteAll()
             .typeString('Let\'s create new projects together!')
