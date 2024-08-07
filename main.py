@@ -2,15 +2,11 @@ from flask import Flask
 from flask_login import LoginManager
 from flask_migrate import Migrate
 from db import db
-from models import User, Project
+from models import User
 from routes import admin_dashboard, delete_project_image, index, admin, login, logout, add_project, edit_project, delete_project
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'your_secret_key'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///projects.db'
-app.config['UPLOAD_FOLDER'] = 'static/images/projects'
-app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024 
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config.from_object('config')
 
 db.init_app(app)
 migrate = Migrate(app, db)
