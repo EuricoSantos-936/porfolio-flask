@@ -3,12 +3,12 @@ from wtforms import StringField, PasswordField, FileField, SubmitField, TextArea
 from wtforms.validators import DataRequired, URL
 
 class ProjectForm(FlaskForm):
-    name = StringField('Name', validators=[DataRequired()])
-    description = TextAreaField('Description', validators=[DataRequired()])
-    mini_description = StringField('Mini Description - To show on cards', validators=[DataRequired()])
-    stack_used = StringField('Stack Used - ex. Flask - Tkinter - React', validators=[DataRequired()])
-    link = StringField('Link', validators=[DataRequired(), URL()])
-    link_github = StringField('GitHub Link', validators=[DataRequired(), URL()])
+    name = StringField('Name', validators=[DataRequired(message="Name is required.")])
+    description = TextAreaField('Description', validators=[DataRequired(message="Description is required.")])
+    mini_description = StringField('Mini Description - To show on cards', validators=[DataRequired(message="Mini Description is required.")])
+    stack_used = StringField('Stack Used - ex. Flask - Tkinter - React', validators=[DataRequired(message="Stack Used is required.")])
+    link = StringField('Link', validators=[DataRequired(message="Link is required."), URL(message="Invalid URL format.")])
+    link_github = StringField('GitHub Link', validators=[DataRequired(message="GitHub Link is required."), URL(message="Invalid URL format.")])
     image = FileField('Image')
     submit = SubmitField('Submit')
 

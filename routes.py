@@ -20,29 +20,44 @@ def admin_dashboard():
     return render_template('admin_dashboard.html', projects=projects)
 
 @login_required
+@login_required
 def add_project():
     from main import app
     form = ProjectForm()
     if form.validate_on_submit():
-        image_filename = 'default.png' 
-        if form.image.data:
-            image_filename = form.image.data.filename
-            form.image.data.save(os.path.join(app.config['UPLOAD_FOLDER'], image_filename))
+        print("Form validated successfully.")
+        try:
+            image_filename = 'default.png'
+            if form.image.data:
+                image_filename = form.image.data.filename
+                form.image.data.save(os.path.join(app.config['UPLOAD_FOLDER'], image_filename))
+                print(f"Image saved as {image_filename}")
 
-        new_project = Project(
-            name=form.name.data,
-            description=form.description.data,
-            mini_description=form.mini_description.data,
-            stack_used=form.stack_used.data,
-            link=form.link.data,
-            link_github=form.link_github.data,
-            image=image_filename
-        )
-        db.session.add(new_project)
-        db.session.commit()
-        flash('Project created successfully!', 'success')
-        return redirect(url_for('admin'))
+            new_project = Project(
+                name=form.name.data,
+                description=form.description.data,
+                mini_description=form.mini_description.data,
+                stack_used=form.stack_used.data,
+                link=form.link.data,
+                link_github=form.link_github.data,
+                image=image_filename
+            )
+            db.session.add(new_project)
+            db.session.commit()
+            print("New project added to the database.")
+            flash('Project created successfully!', 'success')
+            return redirect(url_for('admin'))
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            flash('An error occurred while adding the project.', 'danger')
+    else:
+        print("Form validation failed.")
+        for field, errors in form.errors.items():
+            for error in errors:
+                print(f"Error in the {getattr(form, field).label.text} field - {error}")
+                flash(f"Error in the {getattr(form, field).label.text} field - {error}", 'danger')
     return render_template('add_project.html', form=form)
+
 
 @login_required
 def edit_project(project_id):
