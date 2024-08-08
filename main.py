@@ -3,7 +3,7 @@ from flask_login import LoginManager
 from flask_migrate import Migrate
 from db import db
 from models import User
-from routes import admin_dashboard, delete_project_image, index, admin, login, logout, add_project, edit_project, delete_project
+from routes import admin_dashboard, delete_project_image, index, admin, login, logout, add_project, edit_project, delete_project, download_cv
 
 app = Flask(__name__)
 app.config.from_object('config')
@@ -27,6 +27,7 @@ app.add_url_rule('/add_project', 'add_project', add_project, methods=['GET', 'PO
 app.add_url_rule('/edit_project/<int:project_id>', 'edit_project', edit_project, methods=['GET', 'POST'])
 app.add_url_rule('/delete_project/<int:project_id>', 'delete_project', delete_project, methods=['POST'])
 app.add_url_rule('/delete_project_image/<int:project_id>', 'delete_project_image', delete_project_image)
+app.add_url_rule('/download_cv','download_cv' , download_cv )
 
 if __name__ == '__main__':
     app.run(debug=True)

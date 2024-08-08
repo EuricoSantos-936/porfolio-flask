@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for, request, flash
+from flask import render_template, redirect, send_from_directory, url_for, request, flash
 from flask_login import login_user, login_required, logout_user
 from db import db
 from forms import ProjectForm, LoginForm
@@ -8,6 +8,9 @@ import os
 def index():
     projects = Project.query.all()
     return render_template('home.html', projects=projects)
+
+def download_cv():
+    return send_from_directory(directory='static/files', path='EuricoSantosResumeFS-2024.pdf', as_attachment=True)
 
 @login_required
 def admin():
