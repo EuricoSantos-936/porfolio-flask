@@ -44,7 +44,7 @@ $(document).ready(function() {
     // Lottie animation setup
     var lottieContainers = [
         { containerId: 'man-animation', path: 'static/animations/animation_lo4pd2il.json' },
-        { containerId: 'avatar', path: 'static/animations/animation - 1719093509398.json' }
+        { containerId: 'avatar', path: 'static/animations/animation-1719093509398.json' }
     ];
 
     lottieContainers.forEach(function(config) {
