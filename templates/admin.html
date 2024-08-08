@@ -5,16 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <div class="sidebar">
-        <h3>Admin Dashboard</h3>
-        <a style="color: #fff;" href="{{ url_for('admin_dashboard') }}">Projects</a>
-        <a style="color: #fff;" href="{{ url_for('add_project') }}">Add Project</a>
-        <a style="color: #fff;" href="{{ url_for('index') }}">Site</a>
+        <div class="sidebar-header d-flex align-items-center justify-content-center">
+            <div class="sidebar-brand-text mx-4">Admin Dashboard
+                <button class="toggle-btn" onclick="toggleMenu()">&#9776;</button>
+            </div>
+        </div>
+        <ul class="components">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('admin_dashboard') }}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('add_project') }}">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Add Project</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('index') }}">
+                    <i class="fas fa-link"></i>
+                    <span>Site</span>
+                </a>
+            </li>
+        </ul>
     </div>
+    <!-- End of Sidebar -->
+
     <div class="content">
         {% block content %}{% endblock %}
     </div>
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>

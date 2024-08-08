@@ -2,8 +2,8 @@ $(document).ready(function() {
     // Smooth scrolling for navigation links
     $(".nav-link").on('click', function(event) {
         var hash = this.hash;
-
-        // Verifica se o hash não está vazio e se o elemento existe
+        
+        // Verify if hash is not empty and if element exists
         if (hash !== "" && $(hash).length) {
             event.preventDefault();
             $('html, body').animate({
@@ -85,3 +85,8 @@ $(document).ready(function() {
         document.querySelector('textarea[name="contact-message"]').value = '';
     });
 });
+
+function toggleMenu() {
+    var components = document.querySelector('.sidebar ul.components');
+    components.classList.toggle('show');
+}

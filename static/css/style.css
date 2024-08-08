@@ -5029,9 +5029,9 @@ input[type="button"].btn-block {
 }
 /* Sidebar styles */
 .sidebar {
-  min-width: 250px;
+  min-width: 100px;
   max-width: 250px;
-  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  background: var(--purple);
   color: #fff;
   transition: all 0.3s;
   position: fixed;
@@ -5042,7 +5042,6 @@ input[type="button"].btn-block {
 
 .sidebar .sidebar-header {
   padding: 20px;
-  background: rgba(0, 0, 0, 0.1);
   text-align: center;
   font-size: 1.5em;
   font-weight: bold;
@@ -5067,18 +5066,29 @@ input[type="button"].btn-block {
   text-decoration: none;
   width: 100%;
   transition: background 0.3s, color 0.3s;
+  color: var(--white);
 }
 
 .sidebar ul li a:hover {
-  color: #2575fc ;  
+  color: var(--purple);  
   background: #fff !important;
   border-radius: 4px;
 }
 
 .sidebar ul li a.active {
   background: #fff;
-  color: #2575fc;
+  color: var(--purple);
   border-radius: 4px;
+}
+
+.toggle-btn {
+  display: none;
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  margin: 10px;
 }
 
 .content {
@@ -5088,6 +5098,34 @@ input[type="button"].btn-block {
   min-height: 100vh;
   transition: all 0.3s;
   background-color: #f8f9fa;
+}
+
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    max-width: none;
+    position: relative;
+  }
+  
+  .sidebar ul.components {
+    display: none; 
+  }
+
+  .sidebar ul.components.show {
+    display: block; 
+  }
+
+  .content {
+    width: 100%;
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  .toggle-btn {
+    display: initial;
+  }
 }
 
 .card {
