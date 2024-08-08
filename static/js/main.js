@@ -61,8 +61,7 @@ $(document).ready(function() {
     });
 
     // Contact form EmailJS
-    emailjs.init('7ifx8mL0NF5Wsjynh');
-
+    emailjs.init(EMAILJS_PUBLIC_KEY);
     document.getElementById('contact-form').addEventListener('submit', function(event) {
         event.preventDefault();
 

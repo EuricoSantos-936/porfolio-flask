@@ -4,9 +4,13 @@ from flask_migrate import Migrate
 from db import db
 from models import User
 from routes import admin_dashboard, delete_project_image, index, admin, login, logout, add_project, edit_project, delete_project, download_cv
+import os
 
 app = Flask(__name__)
 app.config.from_object('config')
+@app.context_processor
+def inject_env_vars():
+    return dict(emailjs_public_key=os.getenv('EMAILJS_PUBLIC_KEY'))
 
 db.init_app(app)
 migrate = Migrate(app, db)

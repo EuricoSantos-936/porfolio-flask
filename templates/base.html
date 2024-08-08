@@ -59,6 +59,11 @@
             </div>
         </div>
     </footer> 
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        const EMAILJS_PUBLIC_KEY = "{{ emailjs_public_key }}";
+        emailjs.init(EMAILJS_PUBLIC_KEY);
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.14/lottie.min.js"></script>

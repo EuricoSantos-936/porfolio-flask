@@ -6,8 +6,9 @@ from models import Project, User
 import os
 
 def index():
+    emailjs_public_key = os.getenv('EMAILJS_PUBLIC_KEY')
     projects = Project.query.all()
-    return render_template('home.html', projects=projects)
+    return render_template('home.html', projects=projects, emailjs_public_key=emailjs_public_key)
 
 def download_cv():
     return send_from_directory(directory='static/files', path='EuricoSantosResumeFS-2024.pdf', as_attachment=True)
@@ -22,7 +23,6 @@ def admin_dashboard():
     projects = Project.query.all()
     return render_template('admin_dashboard.html', projects=projects)
 
-@login_required
 @login_required
 def add_project():
     from main import app
