@@ -27,9 +27,7 @@ $(document).ready(function() {
             loop: true
         });
 
-        typewriter.typeString('Full-stack Developer')
-            .pauseFor(2500)
-            .deleteAll()
+        typewriter
             .typeString('Python Developer')
             .pauseFor(2500)
             .deleteAll()
