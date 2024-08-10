@@ -2,6 +2,8 @@
 
 This is a personal portfolio web application built with Flask, allowing you to showcase projects, information about yourself, and contact links. It also includes an admin panel for managing the projects listed in the portfolio.
 
+![Project Screenshot](static/images/flaskproject.png)
+
 ## **Table of Contents**
 
 - [About the Project](#about-the-project)
@@ -9,6 +11,7 @@ This is a personal portfolio web application built with Flask, allowing you to s
 - [Features](#features)
 - [Deployment](#deployment)
 - [Usage](#usage)
+- [Admin page](#admin-page)
 - [Available Routes](#available-routes)
 - [Folder Structure](#folder-structure)
 - [License](#license)
@@ -54,6 +57,15 @@ This project is a web application portfolio where you can present your projects 
 
 - Access the site to view the projects.
 - Use the admin panel to add, edit, or delete projects.
+
+## **Admin Page**
+
+- Acess admin panel by url ``` ../admin ``` as you can see on Avaible routes below
+- See all projects on dashboard
+- Edit projects
+- Add projects
+  
+![Project admin](static/images/addproject.png)
 
 ## **Available Routes**
 
