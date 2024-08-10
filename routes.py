@@ -11,7 +11,7 @@ def index():
     return render_template('home.html', projects=projects, emailjs_public_key=emailjs_public_key)
 
 def download_cv():
-    return send_from_directory(directory='static/files', path='EuricoSantosResumeFS-2024.pdf', as_attachment=True)
+    return send_from_directory(directory='static/files', path='EuricoSantosResumePY-2024.pdf', as_attachment=True)
 
 @login_required
 def admin():
