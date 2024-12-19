@@ -39,10 +39,6 @@ This project is a web application portfolio where you can present your projects 
 
 ## **Deployment**
 
-### **Vercel**
-1. Add the necessary environment variables in the Vercel project settings.
-2. Configure the `vercel.json` file to ensure Flask runs correctly.
-
 ### **Railway**
 1. Add the environment variables to the Railway dashboard.
 2. Set the startup command to use `gunicorn`:
