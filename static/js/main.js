@@ -28,16 +28,16 @@ $(document).ready(function() {
         });
 
         typewriter
-            .typeString('Python Developer')
+            .typeString('Cybersecurity Analyst')
             .pauseFor(2500)
             .deleteAll()
-            .typeString('Web developing - Flask or Django')
+            .typeString('Incident Response, SIEM and Threat Detection Specialist')
             .pauseFor(2500)
             .deleteAll()
-            .typeString('Data Analysis with Python')
+            .typeString('Forensics Enthusiast')
             .pauseFor(2500)
             .deleteAll()
-            .typeString('Let\'s create new projects together!')
+            .typeString('Learn, Analyze, Protect.')
             .pauseFor(2500)
             .start();
     }
